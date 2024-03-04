@@ -7,3 +7,5 @@ export const store = configureStore({
     todoStore: todoStore,
   },
 });
+
+export type RootState = ReturnType<typeof store.getState>;

@@ -1,0 +1,38 @@
+.todo-item {
+  display: flex;
+  justify-content: space-between;
+
+  &__buttons {
+    display: flex;
+    gap: 15px;
+  }
+
+  img {
+    width: 20px;
+    height: 20px;
+  }
+
+  button {
+    cursor: pointer;
+    border: none;
+    border-radius: 10px;
+  }
+
+  &-edit {
+    width: 30px;
+    height: 30px;
+    display: flex;
+    background: #337ab7;
+    align-items: center;
+    justify-content: center;
+  }
+
+  &-delete {
+    width: 30px;
+    height: 30px;
+    display: flex;
+    background-color: red;
+    align-items: center;
+    justify-content: center;
+  }
+}
