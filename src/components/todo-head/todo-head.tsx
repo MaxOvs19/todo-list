@@ -12,6 +12,7 @@ const TodoHead: FC = () => {
   const addedItem = () => {
     if (itemValue?.length > 0) {
       const newItem: ITodoItem = {
+        id: new Date().toLocaleTimeString(),
         status: false,
         text: itemValue,
       };

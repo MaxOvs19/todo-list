@@ -1,0 +1,26 @@
+.todo-filters {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  gap: 25px;
+  margin-top: 20px;
+
+  &__button {
+    border: none;
+    display: flex;
+    background: #337ab7;
+    font-size: 14px;
+    line-height: 20px;
+    padding: 6px 15px;
+    color: #fff;
+    cursor: pointer;
+    border-radius: 10px;
+    transition: 0.4s;
+
+    &:hover {
+      transition: 0.4s;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.12),
+        0 10px 13px rgba(0, 0, 0, 0.12);
+    }
+  }
+}
