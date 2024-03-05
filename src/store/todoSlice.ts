@@ -23,10 +23,26 @@ const todoSlice = createSlice({
         (elem, index) => index !== action.payload
       );
     },
+
+    toggleStateTask: (store, action: PayloadAction<number>) => {
+      const elem = store.items.find((item, index) => index == action.payload);
+      if (elem) {
+        elem.status == true ? (elem.status = false) : (elem.status = true);
+
+        store.items = store.items.map((item, index) => {
+          if (index == action.payload) {
+            item.status = elem.status;
+            return item;
+          } else {
+            return item;
+          }
+        });
+      }
+    },
   },
 });
 
-export const { addItem, deleteItem } = todoSlice.actions;
+export const { addItem, deleteItem, toggleStateTask } = todoSlice.actions;
 
 export const getItems = (store: RootState) => store.todoStore.items;
 

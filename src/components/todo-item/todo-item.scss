@@ -1,6 +1,15 @@
 .todo-item {
   display: flex;
   justify-content: space-between;
+  position: relative;
+  align-items: center;
+
+  p {
+    transition: 0.4s;
+    color: #0d3770;
+    font-size: 16px;
+    padding-left: 3px;
+  }
 
   &__buttons {
     display: flex;
@@ -31,8 +40,38 @@
     width: 30px;
     height: 30px;
     display: flex;
-    background-color: red;
+    background-color: #a92929e6;
     align-items: center;
     justify-content: center;
+  }
+
+  .check {
+    height: 28px;
+    width: 28px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 2px;
+    border-radius: 8px;
+    cursor: pointer;
+
+    img {
+      transition: 0.4s;
+      opacity: 0;
+      padding-top: 1px;
+      pointer-events: none;
+    }
+  }
+}
+
+.compete-task {
+  &--text {
+    transition: 0.4s;
+  }
+
+  &--box {
+    pointer-events: all !important;
+    opacity: 1 !important;
+    transition: 0.4s;
   }
 }
