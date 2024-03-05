@@ -65,6 +65,21 @@ const todoSlice = createSlice({
       }
     },
 
+    editTask: (store, action: PayloadAction<ITodoItem>) => {
+      store.items = store.items.map((item) => {
+        if (item.id == action.payload.id) {
+          item.text = action.payload.text;
+          return item;
+        } else {
+          return item;
+        }
+      });
+
+      store.filterStatusFalse = store.items.filter((i) => i.status != true);
+
+      store.filterStatusTrue = store.items.filter((i) => i.status != false);
+    },
+
     filterStatusFalse: (store, action: PayloadAction<boolean>) => {
       store.type = 2;
       store.filterStatusTrue = [];
@@ -97,6 +112,7 @@ export const {
   filterStatusFalse,
   filterStatusTrue,
   clearFilter,
+  editTask,
 } = todoSlice.actions;
 
 export const getItems = (store: RootState) => store.todoStore.items;

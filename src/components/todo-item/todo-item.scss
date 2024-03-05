@@ -68,6 +68,23 @@
       pointer-events: none;
     }
   }
+
+  &__edit-input {
+    width: 226px;
+    border-radius: 6px;
+    padding: 6px;
+    border: 1px solid gray;
+  }
+
+  &__save {
+    width: 51px;
+    height: 27px;
+    display: flex;
+    background: #33b754;
+    align-items: center;
+    color: white;
+    justify-content: center;
+  }
 }
 
 .compete-task {
