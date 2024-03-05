@@ -1,4 +1,4 @@
-import React, { FC, useEffect, useState } from "react";
+import React, { FC, useState } from "react";
 import { ITodoItem } from "../../interfaces/todoItem";
 
 import edit from "assets/edit.png";
@@ -6,13 +6,8 @@ import deleteIcon from "assets/deleteIcon.png";
 import check from "assets/check.png";
 
 import "./todo-item.scss";
-import { useDispatch, useSelector } from "react-redux";
-import {
-  deleteItem,
-  getFilterStatusFalse,
-  getFilterStatusTrue,
-  toggleStateTask,
-} from "store/todoSlice";
+import { useDispatch } from "react-redux";
+import { deleteItem, toggleStateTask } from "store/todoSlice";
 
 interface IProps {
   item: ITodoItem;

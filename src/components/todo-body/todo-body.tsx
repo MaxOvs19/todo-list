@@ -6,6 +6,7 @@ import {
   getFilterStatusFalse,
   getFilterStatusTrue,
   getItems,
+  getTypeFilleter,
   loadTasks,
 } from "../../store/todoSlice";
 import TodoItem from "../todo-item/todo-item";
@@ -15,6 +16,7 @@ const TodoBody: FC = () => {
   const list = useSelector(getItems);
   const listStatusTaskFalse = useSelector(getFilterStatusFalse);
   const listStatusTaskTrue = useSelector(getFilterStatusTrue);
+  const type = useSelector(getTypeFilleter);
   const dispatch = useDispatch();
 
   useEffect(() => {
@@ -26,17 +28,20 @@ const TodoBody: FC = () => {
 
   return (
     <div className="todo-body">
-      {listStatusTaskFalse.length > 0
-        ? listStatusTaskFalse.map((elem, index) => {
-            return <TodoItem item={elem} key={index} type={0} />;
-          })
-        : listStatusTaskTrue.length > 0
-        ? listStatusTaskTrue.map((elem, index) => {
-            return <TodoItem item={elem} key={index} type={1} />;
-          })
-        : list.map((elem, index) => {
-            return <TodoItem item={elem} key={index} />;
-          })}
+      {type == 0 &&
+        list.map((elem, index) => {
+          return <TodoItem item={elem} key={index} />;
+        })}
+
+      {type == 1 &&
+        listStatusTaskTrue.map((elem, index) => {
+          return <TodoItem item={elem} key={index} type={0} />;
+        })}
+
+      {type == 2 &&
+        listStatusTaskFalse.map((elem, index) => {
+          return <TodoItem item={elem} key={index} type={1} />;
+        })}
     </div>
   );
 };
