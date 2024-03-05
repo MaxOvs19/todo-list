@@ -25,6 +25,12 @@
     cursor: pointer;
     border: none;
     border-radius: 10px;
+    transition: 0.4s;
+
+    &:hover {
+      transition: 0.4s;
+      box-shadow: 0 4px 4px rgba(0, 0, 0, 0.052), 0 5px 5px rgba(0, 0, 0, 0.052);
+    }
   }
 
   &-edit {
@@ -66,7 +72,8 @@
 
 .compete-task {
   &--text {
-    transition: 0.4s;
+    transition: 0.4s !important;
+    color: #314e7497 !important;
   }
 
   &--box {

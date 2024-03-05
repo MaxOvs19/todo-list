@@ -15,7 +15,7 @@ interface IProps {
 }
 
 const TodoItem: FC<IProps> = ({ item, index }) => {
-  const [taskState, setTaskState] = useState<boolean>(false);
+  const [taskState, setTaskState] = useState<boolean>(item.status);
 
   const dispatch = useDispatch();
 

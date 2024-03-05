@@ -14,14 +14,20 @@ const todoSlice = createSlice({
   name: "todoList",
   initialState,
   reducers: {
+    loadTasks: (store, action: PayloadAction<ITodoItem[]>) => {
+      store.items = action.payload;
+    },
+
     addItem: (store, action: PayloadAction<ITodoItem>) => {
       store.items.push(action.payload);
+      localStorage.setItem("todoList", JSON.stringify(store.items));
     },
 
     deleteItem: (store, action: PayloadAction<number>) => {
       store.items = store.items.filter(
         (elem, index) => index !== action.payload
       );
+      localStorage.setItem("todoList", JSON.stringify(store.items));
     },
 
     toggleStateTask: (store, action: PayloadAction<number>) => {
@@ -37,12 +43,14 @@ const todoSlice = createSlice({
             return item;
           }
         });
+        localStorage.setItem("todoList", JSON.stringify(store.items));
       }
     },
   },
 });
 
-export const { addItem, deleteItem, toggleStateTask } = todoSlice.actions;
+export const { addItem, deleteItem, toggleStateTask, loadTasks } =
+  todoSlice.actions;
 
 export const getItems = (store: RootState) => store.todoStore.items;
 
